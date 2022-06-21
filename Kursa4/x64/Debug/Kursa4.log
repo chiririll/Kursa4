@@ -1,0 +1,177 @@
+﻿  Game.cpp
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(51,21): error C2065: 'vrag1': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(53,21): error C2065: 'vrag2': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(55,21): error C2065: 'vrag3': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(57,21): error C2065: 'vrag4': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(59,21): error C2065: 'vrag5': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(63,33): error C2065: 'vrag1': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(63,50): error C2065: 'vrag2': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(63,67): error C2065: 'vrag3': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(63,84): error C2065: 'vrag4': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(63,101): error C2065: 'vrag5': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(80,19): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(81,22): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(82,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(83,43): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(84,27): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(84,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(88,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(88,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(137,9): error C2065: 'vrag1': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(138,9): error C2065: 'vrag1': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(138,20): error C2065: 'vrag1': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(139,9): error C2065: 'vrag1': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(140,9): error C2065: 'vrag1': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(141,9): error C2065: 'vrag2': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(142,9): error C2065: 'vrag2': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(142,20): error C2065: 'vrag2': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(143,9): error C2065: 'vrag2': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(144,9): error C2065: 'vrag2': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(145,9): error C2065: 'vrag3': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(146,9): error C2065: 'vrag3': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(146,20): error C2065: 'vrag3': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(147,9): error C2065: 'vrag3': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(148,9): error C2065: 'vrag3': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(149,9): error C2065: 'vrag4': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(150,9): error C2065: 'vrag4': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(150,20): error C2065: 'vrag4': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(151,9): error C2065: 'vrag4': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(152,9): error C2065: 'vrag4': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(153,9): error C2065: 'vrag5': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(154,9): error C2065: 'vrag5': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(154,20): error C2065: 'vrag5': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(155,9): error C2065: 'vrag5': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(156,9): error C2065: 'vrag5': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(169,114): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(169,94): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(179,116): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(179,96): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(244,31): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(245,28): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(280,31): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(281,28): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(289,25): error C2065: 'vrag1': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(290,25): error C2065: 'vrag2': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(291,25): error C2065: 'vrag3': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(292,25): error C2065: 'vrag4': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(293,25): error C2065: 'vrag5': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(303,28): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(304,28): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+  Player.cpp
+D:\Projects\Cpp\Kursa4\Kursa4\Player.h(15,13): error C3861: 'rand': identifier not found
+  main.cpp
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(51,21): error C2065: 'vrag1': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(53,21): error C2065: 'vrag2': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(55,21): error C2065: 'vrag3': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(57,21): error C2065: 'vrag4': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(59,21): error C2065: 'vrag5': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(63,33): error C2065: 'vrag1': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(63,50): error C2065: 'vrag2': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(63,67): error C2065: 'vrag3': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(63,84): error C2065: 'vrag4': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(63,101): error C2065: 'vrag5': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(80,19): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(81,22): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(82,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(83,43): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(84,27): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(84,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(88,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(88,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(137,9): error C2065: 'vrag1': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(138,9): error C2065: 'vrag1': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(138,20): error C2065: 'vrag1': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(139,9): error C2065: 'vrag1': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(140,9): error C2065: 'vrag1': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(141,9): error C2065: 'vrag2': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(142,9): error C2065: 'vrag2': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(142,20): error C2065: 'vrag2': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(143,9): error C2065: 'vrag2': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(144,9): error C2065: 'vrag2': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(145,9): error C2065: 'vrag3': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(146,9): error C2065: 'vrag3': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(146,20): error C2065: 'vrag3': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(147,9): error C2065: 'vrag3': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(148,9): error C2065: 'vrag3': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(149,9): error C2065: 'vrag4': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(150,9): error C2065: 'vrag4': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(150,20): error C2065: 'vrag4': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(151,9): error C2065: 'vrag4': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(152,9): error C2065: 'vrag4': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(153,9): error C2065: 'vrag5': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(154,9): error C2065: 'vrag5': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(154,20): error C2065: 'vrag5': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(155,9): error C2065: 'vrag5': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(156,9): error C2065: 'vrag5': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(169,114): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(169,94): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(179,116): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(179,96): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(244,31): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(245,28): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(280,31): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(281,28): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(289,25): error C2065: 'vrag1': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(290,25): error C2065: 'vrag2': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(291,25): error C2065: 'vrag3': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(292,25): error C2065: 'vrag4': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(293,25): error C2065: 'vrag5': undeclared identifier
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(303,28): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Projects\Cpp\Kursa4\Kursa4\Game.h(304,28): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+  Generating Code...
