@@ -30,3 +30,13 @@
 *.exe
 *.out
 *.app
+
+# Visual Studio
+.vs/
+
+# External
+External/
+
+# Compilation folders
+Debug/
+Release/
