@@ -4,58 +4,90 @@
 Map::Map(): Map(32, 32)
 {}
 
-Map::Map(Uint16 w, Uint16 h) : Map(w, h, w)
+Map::Map(Uint16 width, Uint16 height) : 
+    m_width(width), m_height(height)
 {}
 
-Map::Map(Uint16 width, Uint16 height, Uint16 count) : 
-    m_width(width), m_height(height)
+Map::~Map()
 {
-    count = std::min(width * height, (int)count);
-    m_ents.resize(count);
+    // Deleting creators
+    for (auto creator : m_creators)
+        delete creator;
+
+    // Deleting entities
+    for (auto ent : m_ents)
+        delete ent;
 }
 
 
-bool Map::checkBlock(Uint16 x, Uint16 y, Uint16 untill)
+void Map::addCreator(EntityCreator* creator)
 {
-    for (int i = 0; i < std::min((Uint16)m_blocks.size(), untill); i++)
-        if (m_blocks[i].x == x && m_blocks[i].y == y)
+    if (creator != nullptr)
+        m_creators.push_back(creator);
+}
+
+
+// Check if entity on block
+bool Map::checkBlock(const sf::Vector2<Uint16>& pos)
+{
+    for (auto ent : m_ents)
+        if (ent->pos() == pos)
             return true;
 
     return false;
 }
 
+
 // Generator
-void Map::generate(Uint8 settings)
+void Map::generate()
 {
-    Uint16 x;
-    Uint16 y;
-    for (int i = 0; i < m_blocks.size(); i++) {
-        do {
-            x = rand() % m_width;
-            y = rand() % m_height;
-        } while (checkBlock(x, y, i));
-
-        m_blocks[i].type = 
-    }
-
-    int x = 0;
-    int y = 0;
-    int randomv;
-    while (y < 5000) {
-        while (x < 5000) {
-            randomv = rand() % 4;
-            if (randomv != 0) {
-                map[x][y].type = "grass1";
-            }
-            else {
-                map[x][y].type = "tree1";
-            }
-            if (rand() % 100 == 0) {
-                map[x][y].type = "enemy1";
-            }
-            x++;
+    sf::Vector2<Uint16> pos;
+    
+    for (int i = 0; i < m_creators.size(); ) {
+        if (m_creators[i]->count() <= 0) {
+            i++; continue;
         }
-        x = 0;
-        y++;
+
+        // Randomizing position
+        do {
+            pos.x = rand() % m_width;
+            pos.y = rand() % m_height;
+        } while (checkBlock(pos));
+        
+        cout << "Pos: " << pos.x << " " << pos.y << endl;
+
+        // Creating entity
+        auto ent = m_creators[i]->createEntity(pos);
+        if (ent != nullptr)
+            m_ents.push_back(ent);
     }
+}
+
+void Map::update()
+{
+    // Updating entities
+    for (auto it = m_ents.begin(); it != m_ents.end(); ) {
+        auto ent = *it;
+        if (ent->isAlive()) {
+            ent->think();
+            it++;
+        }
+        else
+            it = m_ents.erase(it);
+    }
+}
+
+void Map::render(sf::RenderWindow* window)
+{
+    const Uint16 BLOCK_SIZE = 100;
+
+    // Rendering entities
+    for (auto ent : m_ents) {
+        // TODO: Check in view
+        auto& rect = ent->rect();
+        rect.setPosition(ent->x() * BLOCK_SIZE, ent->y() * BLOCK_SIZE);
+        ent->render(window);
+    }
+    // Rendering map
+    // TODO
 }

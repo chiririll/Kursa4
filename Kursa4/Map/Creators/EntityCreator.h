@@ -5,6 +5,10 @@
 
 typedef unsigned int Uint32;
 
+#include <iostream>
+using std::cout;
+using std::endl;
+
 class EntityCreator
 {
 private:

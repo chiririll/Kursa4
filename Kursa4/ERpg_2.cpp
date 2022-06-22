@@ -303,7 +303,7 @@ void mouseuse(Event event) {
     }
 }
 
-int main()
+int not_main()
 {
     
     
@@ -314,7 +314,7 @@ int main()
     Player.damage = 10;
 
 
-    mapgen();
+    //mapgen();
     while (window.isOpen()) {
         Event event;
         while (window.pollEvent(event)) {
@@ -350,5 +350,7 @@ int main()
             display(); optim = 1;
         }else { optim = 0; }
     }
+    
+    return 0;
 }
 

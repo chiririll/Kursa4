@@ -136,13 +136,12 @@
     <ClCompile Include="Entities\Enemy.cpp" />
     <ClCompile Include="Entities\Player.cpp" />
     <ClCompile Include="Map\Creators\EntityCreator.cpp" />
-    <ClCompile Include="Map\Block.cpp" />
     <ClCompile Include="Entities\Entity.cpp" />
-    <ClCompile Include="ERpg_2.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map\Map.cpp" />
     <ClCompile Include="Entities\Tree.cpp" />
+    <ClCompile Include="Map\Creators\TreeCreator.cpp" />
     <ClCompile Include="UI\HealthBar.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -152,11 +151,11 @@
     <ClInclude Include="Entities\Enemy.h" />
     <ClInclude Include="Entities\Player.h" />
     <ClInclude Include="Map\Creators\EntityCreator.h" />
-    <ClInclude Include="Map\Block.h" />
     <ClInclude Include="Entities\Entity.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Map\Map.h" />
     <ClInclude Include="Entities\Tree.h" />
+    <ClInclude Include="Map\Creators\TreeCreator.h" />
     <ClInclude Include="UI\HealthBar.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

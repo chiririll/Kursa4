@@ -12,6 +12,7 @@ Entity::Entity(sf::Vector2f size, sf::Vector2<Uint16> pos, Uint32 health, Uint32
 {}
 
 
+// Actions
 void Entity::move(sf::Vector2<int> delta)
 {
 	m_pos.x += delta.x;
@@ -30,12 +31,21 @@ void Entity::takeDamage(Uint32 amount)
 		die();
 }
 
+void Entity::die()
+{
+	m_alive = false;
+}
+
+
+// Updaters
 void Entity::render(sf::RenderWindow* window)
 {
 	if (m_hp > 0)
 		window->draw(m_rect);
 }
 
+
+// Variables
 Uint32 Entity::GetHealth()
 {
 	return m_hp;
@@ -43,5 +53,26 @@ Uint32 Entity::GetHealth()
 
 bool Entity::isAlive()
 {
-	return m_hp > 0;
+	return m_alive;
+}
+
+// Position
+sf::Vector2<Uint16> Entity::pos()
+{
+	return m_pos;
+}
+
+Uint16 Entity::x()
+{
+	return m_pos.x;
+}
+
+Uint16 Entity::y()
+{
+	return m_pos.y;
+}
+
+sf::RectangleShape& Entity::rect()
+{
+	return m_rect;
 }

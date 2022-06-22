@@ -17,6 +17,6 @@ void EntityCreator::setCount(Uint32 min, Uint32 max)
 Entity* EntityCreator::createEntity(const sf::Vector2<Uint16>& pos)
 {
 	if (m_count-- > 0)
-		return createEntity(pos);
+		return create(pos);
 	return nullptr;
 }

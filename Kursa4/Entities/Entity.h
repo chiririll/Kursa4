@@ -15,6 +15,7 @@ protected:
 	sf::Vector2f m_size;
 
 	// Health
+	bool m_alive = true; // For cleanup
 	Uint32 m_max_hp;
 	Uint32 m_hp;
 
@@ -32,15 +33,21 @@ public:
 	virtual void move(sf::Vector2<int> delta);
 	virtual void heal(Uint32 amount);
 	virtual void takeDamage(Uint32 damage);
-	virtual void die() {};
+	virtual void die();
 	virtual void interact() {};
 
 	// Updates
-	virtual void think() = 0;
+	virtual void think() {};
 	virtual void render(sf::RenderWindow* window);
 
 	// Variables
 	Uint32 GetHealth();
 	bool isAlive();
+	sf::Vector2<Uint16> pos();
+	Uint16 x();
+	Uint16 y();
+
+	// Render
+	sf::RectangleShape& rect();
 };
 
