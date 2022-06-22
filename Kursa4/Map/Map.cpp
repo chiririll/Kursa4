@@ -1,12 +1,16 @@
 #include "Map.h"
 
 // Constructors & destructors
-Map::Map(): Map(32, 32)
-{}
+Map::Map(): Map(32, 32) {}
 
-Map::Map(Uint16 width, Uint16 height) : 
-    m_width(width), m_height(height)
-{}
+Map::Map(Uint16 width, Uint16 height, const std::string& path) : 
+    m_width(width), m_height(height), m_bg({ BLOCK_SIZE, BLOCK_SIZE }),
+    m_player(width / 2, height / 2, 100, "res/player.png")
+{
+    // Loading block texture
+    m_bg_texture.loadFromFile(path);
+    m_bg.setTexture(&m_bg_texture);
+}
 
 Map::~Map()
 {
@@ -53,8 +57,6 @@ void Map::generate()
             pos.x = rand() % m_width;
             pos.y = rand() % m_height;
         } while (checkBlock(pos));
-        
-        cout << "Pos: " << pos.x << " " << pos.y << endl;
 
         // Creating entity
         auto ent = m_creators[i]->createEntity(pos);
@@ -79,15 +81,28 @@ void Map::update()
 
 void Map::render(sf::RenderWindow* window)
 {
-    const Uint16 BLOCK_SIZE = 100;
+    // 
+    auto screen_size = window->getSize();
+    sf::Vector2u player_pos(screen_size.x / 2 - BLOCK_SIZE / 2, screen_size.y / 2 - BLOCK_SIZE / 2);
+    sf::Vector2i offset(BLOCK_SIZE - player_pos.x % BLOCK_SIZE, BLOCK_SIZE - player_pos.y % BLOCK_SIZE);
+
+    // Rendering map
+    sf::Vector2u count(screen_size.x / BLOCK_SIZE + 2, screen_size.y / BLOCK_SIZE + 2);
+    for (int y = 0; y < count.y; y++)
+        for (int x = 0; x < count.x; x++) {
+            m_bg.setPosition(x * BLOCK_SIZE - offset.x, y * BLOCK_SIZE - offset.y);
+            window->draw(m_bg);
+        }
 
     // Rendering entities
     for (auto ent : m_ents) {
         // TODO: Check in view
         auto& rect = ent->rect();
-        rect.setPosition(ent->x() * BLOCK_SIZE, ent->y() * BLOCK_SIZE);
+        rect.setPosition(ent->x() * BLOCK_SIZE - offset.x, ent->y() * BLOCK_SIZE - offset.y);
         ent->render(window);
     }
-    // Rendering map
-    // TODO
+
+    // Rendering player
+    m_player.rect().setPosition(player_pos.x, player_pos.y);
+    m_player.render(window);
 }

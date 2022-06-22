@@ -2,8 +2,7 @@
 #include <SFML/System.hpp>
 #include <SFML/Graphics.hpp>
 
-typedef unsigned short Uint16;
-typedef unsigned int Uint32;
+#include "../settings.h"
 
 class Entity
 {
@@ -25,9 +24,13 @@ protected:
 public:
 	// Constructors & Destructors
 	Entity();
-	Entity(sf::Vector2f size, sf::Vector2<Uint16> pos, Uint32 health);
-	Entity(sf::Vector2f size, sf::Vector2<Uint16> pos, Uint32 health, Uint32 max_health);
+	Entity(sf::Vector2<Uint16> pos, Uint32 health);
 	virtual ~Entity() = default;
+
+	// Setters
+	void setSize(sf::Vector2f size);
+	void setHealth(Uint32 health);
+	void setMaxHealth(Uint32 max_health);
 
 	// Actions
 	virtual void move(sf::Vector2<int> delta);

@@ -1,15 +1,30 @@
 #include "Entity.h"
 
-Entity::Entity() : Entity({ 0, 0 }, { 0, 0 }, 100)
+Entity::Entity() : Entity({ 0, 0 }, 100)
 {}
 
-Entity::Entity(sf::Vector2f size, sf::Vector2<Uint16> pos, Uint32 health):
-	Entity(size, pos, health, health)
+Entity::Entity(sf::Vector2<Uint16> pos, Uint32 health):
+	m_pos(pos), m_max_hp(health), m_hp(health), m_rect({ BLOCK_SIZE, BLOCK_SIZE })
 {}
 
-Entity::Entity(sf::Vector2f size, sf::Vector2<Uint16> pos, Uint32 health, Uint32 max_health):
-    m_size(size), m_pos(pos), m_max_hp(max_health), m_hp(health), m_rect(size)
-{}
+
+// Setters
+void Entity::setSize(sf::Vector2f size)
+{
+	m_rect.setSize(size);
+}
+
+void Entity::setHealth(Uint32 health)
+{
+	m_hp = health;
+	// TODO: Check
+}
+
+void Entity::setMaxHealth(Uint32 max_health)
+{
+	m_max_hp = max_health;
+	// TODO: Check
+}
 
 
 // Actions

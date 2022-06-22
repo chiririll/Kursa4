@@ -153,6 +153,7 @@
     <ClInclude Include="Map\Creators\EntityCreator.h" />
     <ClInclude Include="Entities\Entity.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="settings.h" />
     <ClInclude Include="Map\Map.h" />
     <ClInclude Include="Entities\Tree.h" />
     <ClInclude Include="Map\Creators\TreeCreator.h" />

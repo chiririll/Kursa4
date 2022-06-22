@@ -8,8 +8,6 @@
 #include "Map/Creators/EnemyCreator.h"
 #include "Map/Creators/TreeCreator.h"
 
-using namespace sf;
-
 /* === Debug === */
 #include <iostream>
 using std::cout;

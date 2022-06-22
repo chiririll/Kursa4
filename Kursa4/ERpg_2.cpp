@@ -303,7 +303,7 @@ void mouseuse(Event event) {
     }
 }
 
-int not_main()
+int main()
 {
     
     
