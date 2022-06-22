@@ -18,7 +18,7 @@ protected:
 	virtual Entity* create(const sf::Vector2<Uint16>& pos) = 0;
 
 public:
-	EntityCreator() = default;
+	EntityCreator();
 	EntityCreator(Uint32 count);
 	virtual ~EntityCreator() = default;
 

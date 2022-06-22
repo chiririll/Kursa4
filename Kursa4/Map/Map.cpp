@@ -47,7 +47,11 @@ void Map::generate()
 {
     sf::Vector2<Uint16> pos;
     
+    Uint32 max_ents = m_width * m_height;
     for (int i = 0; i < m_creators.size(); ) {
+        if (m_ents.size() >= max_ents)
+            break;
+
         if (m_creators[i]->count() <= 0) {
             i++; continue;
         }
@@ -93,12 +97,11 @@ void Map::render(sf::RenderWindow* window)
             m_bg.setPosition(x * BLOCK_SIZE - offset.x, y * BLOCK_SIZE - offset.y);
             window->draw(m_bg);
         }
-
+       
     // Rendering entities
     for (auto ent : m_ents) {
         // TODO: Check in view
-        auto& rect = ent->rect();
-        rect.setPosition(ent->x() * BLOCK_SIZE - offset.x, ent->y() * BLOCK_SIZE - offset.y);
+        ent->updateRenderPos(player_pos, offset, &m_player);
         ent->render(window);
     }
 

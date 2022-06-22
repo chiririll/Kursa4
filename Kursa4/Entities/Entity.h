@@ -10,7 +10,7 @@ private:
 
 protected:
 	// Transform
-	sf::Vector2<Uint16> m_pos;
+	sf::Vector2<Uint16> m_map_pos;
 	sf::Vector2f m_size;
 
 	// Health
@@ -21,6 +21,9 @@ protected:
 	// Rectangle
 	sf::RectangleShape m_rect;
 
+	// Default render
+	void default_render(sf::RenderWindow* window);
+
 public:
 	// Constructors & Destructors
 	Entity();
@@ -28,6 +31,8 @@ public:
 	virtual ~Entity() = default;
 
 	// Setters
+	void setRenderPos(const sf::Vector2f& pos);
+	void setRenderPos(float x, float y);
 	void setSize(sf::Vector2f size);
 	void setHealth(Uint32 health);
 	void setMaxHealth(Uint32 max_health);
@@ -44,13 +49,20 @@ public:
 	virtual void render(sf::RenderWindow* window);
 
 	// Variables
-	Uint32 GetHealth();
-	bool isAlive();
-	sf::Vector2<Uint16> pos();
-	Uint16 x();
-	Uint16 y();
+	Uint32 getHealth() const;
+	Uint32 getMaxHealth() const;
+	bool isAlive() const;
+	sf::Vector2<Uint16> pos() const;
+	Uint16 x() const;
+	Uint16 y() const;
+	sf::Vector2f getRenderPos() const;
 
 	// Render
 	sf::RectangleShape& rect();
+
+	// Render position
+	void updateRenderPos(const sf::RenderWindow* window, const Entity* player);
+	void updateRenderPos(const sf::Vector2u& player_pos, const sf::Vector2i& offset, const Entity* player);
+	void updateRenderPos(const sf::Vector2f& render_pos);
 };
 

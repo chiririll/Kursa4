@@ -1,5 +1,8 @@
 #include "EntityCreator.h"
 
+EntityCreator::EntityCreator() : EntityCreator(0)
+{}
+
 EntityCreator::EntityCreator(Uint32 count) :
 	m_count(count)
 {}
@@ -16,7 +19,10 @@ void EntityCreator::setCount(Uint32 min, Uint32 max)
 
 Entity* EntityCreator::createEntity(const sf::Vector2<Uint16>& pos)
 {
-	if (m_count-- > 0)
-		return create(pos);
-	return nullptr;
+	if (m_count <= 0)
+		return nullptr;
+	
+	m_count--;
+	auto ent = create(pos);
+	return ent;
 }

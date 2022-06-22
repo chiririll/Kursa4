@@ -2,7 +2,8 @@
 
 Game::Game() :
 	m_window(sf::VideoMode(1280, 720), "Game title"),
-	m_global_map(16, 8)
+	m_global_map(64, 32)
+	// m_global_map(16, 16)
 {
 	initRand();
 	initMap();
@@ -14,17 +15,18 @@ void Game::initMap()
 {
 	// Camps
 	auto camp_creator = new CampCreator();
-	camp_creator->setCount(4, 8);
+	camp_creator->setCount(8, 16);
+	// camp_creator->setCount(2048);
 	m_global_map.addCreator(camp_creator);
 
 	// Enemies
 	auto enemy_creator = new EnemyCreator();
-	enemy_creator->setCount(8, 10);
+	enemy_creator->setCount(16, 24);
 	m_global_map.addCreator(enemy_creator);
 	
 	// Trees
 	auto tree_creator = new TreeCreator();
-	tree_creator->setCount(10, 20);
+	tree_creator->setCount(12, 24);
 	m_global_map.addCreator(tree_creator);
 
 	// Generating map
