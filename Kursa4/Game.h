@@ -19,11 +19,13 @@ class Game
 private:
 	// Variables
 	sf::RenderWindow m_window;
+	sf::View m_view;
 	Map m_global_map;
 
 	// Initializers
 	void initMap();
 	void initRand();
+	void initView();
 
 	// Updaters
 	void update();

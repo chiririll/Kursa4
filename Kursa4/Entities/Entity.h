@@ -31,8 +31,6 @@ public:
 	virtual ~Entity() = default;
 
 	// Setters
-	void setRenderPos(const sf::Vector2f& pos);
-	void setRenderPos(float x, float y);
 	void setSize(sf::Vector2f size);
 	void setHealth(Uint32 health);
 	void setMaxHealth(Uint32 max_health);
@@ -59,10 +57,5 @@ public:
 
 	// Render
 	sf::RectangleShape& rect();
-
-	// Render position
-	void updateRenderPos(const sf::RenderWindow* window, const Entity* player);
-	void updateRenderPos(const sf::Vector2u& player_pos, const sf::Vector2i& offset, const Entity* player);
-	void updateRenderPos(const sf::Vector2f& render_pos);
 };
 

@@ -38,6 +38,9 @@ bool Map::checkBlock(const sf::Vector2<Uint16>& pos)
         if (ent->pos() == pos)
             return true;
 
+    if (pos == m_player.pos())
+        return true;
+
     return false;
 }
 
@@ -47,7 +50,7 @@ void Map::generate()
 {
     sf::Vector2<Uint16> pos;
     
-    Uint32 max_ents = m_width * m_height;
+    Uint32 max_ents = m_width * m_height - 1;
     for (int i = 0; i < m_creators.size(); ) {
         if (m_ents.size() >= max_ents)
             break;
@@ -83,29 +86,24 @@ void Map::update()
     }
 }
 
-void Map::render(sf::RenderWindow* window)
+void Map::render(sf::RenderWindow* window, sf::View* view)
 {
-    // 
-    auto screen_size = window->getSize();
-    sf::Vector2u player_pos(screen_size.x / 2 - BLOCK_SIZE / 2, screen_size.y / 2 - BLOCK_SIZE / 2);
-    sf::Vector2i offset(BLOCK_SIZE - player_pos.x % BLOCK_SIZE, BLOCK_SIZE - player_pos.y % BLOCK_SIZE);
-
     // Rendering map
-    sf::Vector2u count(screen_size.x / BLOCK_SIZE + 2, screen_size.y / BLOCK_SIZE + 2);
-    for (int y = 0; y < count.y; y++)
-        for (int x = 0; x < count.x; x++) {
-            m_bg.setPosition(x * BLOCK_SIZE - offset.x, y * BLOCK_SIZE - offset.y);
+    for (Uint32 y = 0; y < m_height; y++)
+        for (int x = 0; x < m_width; x++) {
+            m_bg.setPosition(x * BLOCK_SIZE, y * BLOCK_SIZE);
             window->draw(m_bg);
         }
        
     // Rendering entities
-    for (auto ent : m_ents) {
-        // TODO: Check in view
-        ent->updateRenderPos(player_pos, offset, &m_player);
+    for (auto ent : m_ents) 
         ent->render(window);
-    }
 
     // Rendering player
-    m_player.rect().setPosition(player_pos.x, player_pos.y);
     m_player.render(window);
+
+    view->setCenter(
+        m_player.x() * BLOCK_SIZE + BLOCK_SIZE / 2, 
+        m_player.y() * BLOCK_SIZE + BLOCK_SIZE / 2
+    );
 }

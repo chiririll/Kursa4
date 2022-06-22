@@ -43,6 +43,6 @@ public:
 	
 	// Updaters
 	void update();
-	void render(sf::RenderWindow* window);
+	void render(sf::RenderWindow* window, sf::View* view);
 };
 

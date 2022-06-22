@@ -55,8 +55,10 @@ void Entity::die()
 // Renderers
 void Entity::default_render(sf::RenderWindow* window)
 {
-	if (m_hp > 0)
+	if (m_hp > 0) {
+		m_rect.setPosition(m_map_pos.x * BLOCK_SIZE, m_map_pos.y * BLOCK_SIZE);
 		window->draw(m_rect);
+	}
 }
 
 void Entity::render(sf::RenderWindow* window)
@@ -105,30 +107,4 @@ sf::Vector2f Entity::getRenderPos() const
 sf::RectangleShape& Entity::rect()
 {
 	return m_rect;
-}
-
-
-// Render position
-void Entity::updateRenderPos(const sf::RenderWindow* window, const Entity* player)
-{
-	auto screen_size = window->getSize();
-	sf::Vector2u player_pos(screen_size.x / 2 - BLOCK_SIZE / 2, screen_size.y / 2 - BLOCK_SIZE / 2);
-	sf::Vector2i offset(BLOCK_SIZE - player_pos.x % BLOCK_SIZE, BLOCK_SIZE - player_pos.y % BLOCK_SIZE);
-
-	updateRenderPos(player_pos, offset, player);
-}
-
-void Entity::updateRenderPos(const sf::Vector2u& player_pos, const sf::Vector2i& offset, const Entity* player)
-{
-	sf::Vector2f render_pos(
-		(m_map_pos.x + player->x()) * BLOCK_SIZE - offset.x,
-		(m_map_pos.y + player->y()) * BLOCK_SIZE - offset.y
-	);
-
-	updateRenderPos(render_pos);
-}
-
-void Entity::updateRenderPos(const sf::Vector2f& render_pos)
-{
-	m_rect.setPosition(render_pos);
 }

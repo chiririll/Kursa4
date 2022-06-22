@@ -7,6 +7,7 @@ Game::Game() :
 {
 	initRand();
 	initMap();
+	initView();
 }
 
 
@@ -16,7 +17,6 @@ void Game::initMap()
 	// Camps
 	auto camp_creator = new CampCreator();
 	camp_creator->setCount(8, 16);
-	// camp_creator->setCount(2048);
 	m_global_map.addCreator(camp_creator);
 
 	// Enemies
@@ -36,6 +36,12 @@ void Game::initMap()
 void Game::initRand()
 {
 	srand(time(nullptr));
+}
+
+void Game::initView()
+{
+	m_view = m_window.getDefaultView();
+	m_view.zoom(1.2f);
 }
 
 
@@ -64,7 +70,9 @@ void Game::render()
 {
 	m_window.clear();
 
-	m_global_map.render(&m_window);
+	m_global_map.render(&m_window, &m_view);
+	
+	m_window.setView(m_view);
 
 	m_window.display();
 }
