@@ -2,12 +2,18 @@
 #include "EntityCreator.h"
 #include "../../Entities/Camp.h"
 
+class GameState;
+
 class CampCreator : public EntityCreator
 {
 private:
-	const std::string m_texture_path = "res/camp.png";
+	bool m_exit = false;
+	const std::string m_texture_path = "res/entities/camp.png";
 
 protected:
-	Entity* create(const sf::Vector2<Uint16>& pos);
+	Entity* create(const sf::Vector2u& pos);
+
+public:
+	void setExit();
 };
 

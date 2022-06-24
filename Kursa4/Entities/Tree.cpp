@@ -1,6 +1,6 @@
 #include "Tree.h"
 
-Tree::Tree(sf::Vector2<Uint16> pos, Uint32 health, std::string texture_file) :
+Tree::Tree(const sf::Vector2u& pos, Uint32 health, std::string texture_file) :
     Entity(pos, health)
 {
     m_texture.loadFromFile(texture_file);

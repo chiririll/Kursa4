@@ -3,12 +3,17 @@
 Entity::Entity() : Entity({ 0, 0 }, 100)
 {}
 
-Entity::Entity(sf::Vector2<Uint16> pos, Uint32 health):
+Entity::Entity(sf::Vector2u pos, Uint32 health):
 	m_map_pos(pos), m_max_hp(health), m_hp(health), m_rect({ BLOCK_SIZE, BLOCK_SIZE })
 {}
 
 
 // Setters
+void Entity::setPos(sf::Vector2u pos)
+{
+	m_map_pos = pos;
+}
+
 void Entity::setSize(sf::Vector2f size)
 {
 	m_rect.setSize(size);
@@ -28,7 +33,7 @@ void Entity::setMaxHealth(Uint32 max_health)
 
 
 // Actions
-void Entity::move(sf::Vector2<int> delta)
+void Entity::move(sf::Vector2i delta)
 {
 	m_map_pos.x += delta.x;
 	m_map_pos.y += delta.y;
@@ -84,7 +89,7 @@ bool Entity::isAlive() const
 }
 
 // Position
-sf::Vector2<Uint16> Entity::pos() const
+sf::Vector2u Entity::pos() const
 {
 	return m_map_pos;
 }

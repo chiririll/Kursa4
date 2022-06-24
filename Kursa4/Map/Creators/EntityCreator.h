@@ -5,9 +5,11 @@
 
 typedef unsigned int Uint32;
 
+/* === DEBUG === */
 #include <iostream>
 using std::cout;
 using std::endl;
+/* ============= */
 
 class EntityCreator
 {
@@ -15,7 +17,7 @@ private:
 	Uint32 m_count;
 
 protected:
-	virtual Entity* create(const sf::Vector2<Uint16>& pos) = 0;
+	virtual Entity* create(const sf::Vector2u& pos) = 0;
 
 public:
 	EntityCreator();
@@ -30,6 +32,6 @@ public:
 	Uint32 count() { return m_count; };
 
 	// Greators
-	Entity* createEntity(const sf::Vector2<Uint16>& pos);
+	Entity* createEntity(const sf::Vector2u& pos);
 };
 

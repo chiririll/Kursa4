@@ -17,32 +17,38 @@ class Map
 {
 private:
 	// Size
-	Uint16 m_width;
-	Uint16 m_height;
+	Uint32 m_width;
+	Uint32 m_height;
 
 	// Blocks
 	sf::Texture m_bg_texture;
 	sf::RectangleShape m_bg;
 
 	// Entities
+	Player* m_player;
 	std::list<Entity*> m_ents;
 	std::vector<EntityCreator*> m_creators;
 
-	// Player
-	Player m_player;
-
 public:
 	Map();
-	Map(Uint16 width, Uint16 height, const std::string& path = "res/grass.png");
+	Map(const sf::Vector2u& size, const std::string& path = "res/map/grass.png");
+	Map(Uint32 width, Uint32 height, const std::string& path = "res/map/grass.png");
 	virtual ~Map();
 
+	void addPlayer(Player* player);
 	void addCreator(EntityCreator* creator);
-	bool checkBlock(const sf::Vector2<Uint16>& pos);
+	Entity* getEntity(const sf::Vector2u& pos);
+	bool checkBlock(const sf::Vector2u& pos);
 
 	void generate();
 	
 	// Updaters
 	void update();
-	void render(sf::RenderWindow* window, sf::View* view);
+	void render(sf::RenderWindow* window);
+
+	// Getters
+	Uint32 width();
+	Uint32 height();
+
 };
 

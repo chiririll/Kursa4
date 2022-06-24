@@ -3,9 +3,12 @@
 // Constructors & destructors
 Map::Map(): Map(32, 32) {}
 
-Map::Map(Uint16 width, Uint16 height, const std::string& path) : 
-    m_width(width), m_height(height), m_bg({ BLOCK_SIZE, BLOCK_SIZE }),
-    m_player(width / 2, height / 2, 100, "res/player.png")
+Map::Map(const sf::Vector2u& size, const std::string& path) :
+    Map(size.x, size.y, path)
+{}
+
+Map::Map(Uint32 width, Uint32 height, const std::string& path) : 
+    m_width(width), m_height(height), m_bg({ BLOCK_SIZE, BLOCK_SIZE }), m_player()
 {
     // Loading block texture
     m_bg_texture.loadFromFile(path);
@@ -24,6 +27,11 @@ Map::~Map()
 }
 
 
+void Map::addPlayer(Player* player)
+{
+    m_player = player;
+}
+
 void Map::addCreator(EntityCreator* creator)
 {
     if (creator != nullptr)
@@ -31,14 +39,22 @@ void Map::addCreator(EntityCreator* creator)
 }
 
 
-// Check if entity on block
-bool Map::checkBlock(const sf::Vector2<Uint16>& pos)
+// Get entity by cords
+Entity* Map::getEntity(const sf::Vector2u& pos) 
 {
     for (auto ent : m_ents)
         if (ent->pos() == pos)
-            return true;
+            return ent;
+    return nullptr;
+}
 
-    if (pos == m_player.pos())
+// Check if entity on block
+bool Map::checkBlock(const sf::Vector2u& pos)
+{
+    if (getEntity(pos))
+        return true;
+
+    if (pos == m_player->pos())
         return true;
 
     return false;
@@ -48,7 +64,7 @@ bool Map::checkBlock(const sf::Vector2<Uint16>& pos)
 // Generator
 void Map::generate()
 {
-    sf::Vector2<Uint16> pos;
+    sf::Vector2u pos;
     
     Uint32 max_ents = m_width * m_height - 1;
     for (int i = 0; i < m_creators.size(); ) {
@@ -86,24 +102,28 @@ void Map::update()
     }
 }
 
-void Map::render(sf::RenderWindow* window, sf::View* view)
+void Map::render(sf::RenderWindow* window)
 {
     // Rendering map
     for (Uint32 y = 0; y < m_height; y++)
-        for (int x = 0; x < m_width; x++) {
-            m_bg.setPosition(x * BLOCK_SIZE, y * BLOCK_SIZE);
+        for (Uint32 x = 0; x < m_width; x++) {
+            m_bg.setPosition(x * (float)BLOCK_SIZE, y * (float)BLOCK_SIZE);
             window->draw(m_bg);
         }
-       
+
     // Rendering entities
-    for (auto ent : m_ents) 
+    for (auto ent : m_ents)
         ent->render(window);
+}
 
-    // Rendering player
-    m_player.render(window);
 
-    view->setCenter(
-        m_player.x() * BLOCK_SIZE + BLOCK_SIZE / 2, 
-        m_player.y() * BLOCK_SIZE + BLOCK_SIZE / 2
-    );
+// Getters
+Uint32 Map::width()
+{
+    return m_width;
+}
+
+Uint32 Map::height()
+{
+    return m_height;
 }

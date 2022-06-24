@@ -1,7 +1,9 @@
 #include "EnemyCreator.h"
 
-Entity* EnemyCreator::create(const sf::Vector2<Uint16>& pos)
+Entity* EnemyCreator::create(const sf::Vector2u& pos)
 {
 	// TODO: Randomize
-	return new Enemy(pos, 100, m_texture_path);
+	auto e = new Enemy(pos, 100, m_texture_path);
+	e->setHealth(50);
+	return e;
 }

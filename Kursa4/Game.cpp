@@ -1,38 +1,29 @@
 #include "Game.h"
 
 Game::Game() :
-	m_window(sf::VideoMode(1280, 720), "Game title"),
-	m_global_map(64, 32)
-	// m_global_map(16, 16)
+	m_window(sf::VideoMode(1280, 720), "Game title")
 {
 	initRand();
-	initMap();
 	initView();
+}
+
+void Game::pushState(State* state)
+{
+	m_states.push(state);
+}
+
+void Game::popState()
+{
+	// Leaving at least one state
+	if (m_states.size() <= 1)
+		return;
+	
+	delete m_states.top();
+	m_states.pop();
 }
 
 
 // Initializers
-void Game::initMap()
-{
-	// Camps
-	auto camp_creator = new CampCreator();
-	camp_creator->setCount(8, 16);
-	m_global_map.addCreator(camp_creator);
-
-	// Enemies
-	auto enemy_creator = new EnemyCreator();
-	enemy_creator->setCount(16, 24);
-	m_global_map.addCreator(enemy_creator);
-	
-	// Trees
-	auto tree_creator = new TreeCreator();
-	tree_creator->setCount(12, 24);
-	m_global_map.addCreator(tree_creator);
-
-	// Generating map
-	m_global_map.generate();
-}
-
 void Game::initRand()
 {
 	srand(time(nullptr));
@@ -41,7 +32,7 @@ void Game::initRand()
 void Game::initView()
 {
 	m_view = m_window.getDefaultView();
-	m_view.zoom(1.2f);
+	// m_view.zoom(1.2f);
 }
 
 
@@ -50,6 +41,7 @@ void Game::run()
 {
 	while (m_window.isOpen()) 
 	{
+		handleEvents();
 		update();
 		render();
 	}
@@ -66,13 +58,42 @@ void Game::update()
 {
 }
 
+void Game::handleEvents()
+{
+	sf::Event e;
+	while (m_window.pollEvent(e)) 
+	{
+		switch (e.type)
+		{
+		case sf::Event::Closed:
+			m_window.close();
+			break;
+		case sf::Event::MouseButtonPressed:
+			cout << "Click! ";
+			m_states.top()->handleMouseClick(e);
+			break;
+		}
+	}
+}
+
 void Game::render()
 {
 	m_window.clear();
 
-	m_global_map.render(&m_window, &m_view);
+	m_states.top()->render();
 	
 	m_window.setView(m_view);
-
 	m_window.display();
+}
+
+
+// Getters
+sf::RenderWindow* Game::window()
+{
+	return &m_window;
+}
+
+sf::View* Game::view()
+{
+	return &m_view;
 }

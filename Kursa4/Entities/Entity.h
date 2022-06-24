@@ -4,13 +4,15 @@
 
 #include "../settings.h"
 
+class Game;
+
 class Entity
 {
 private:
 
 protected:
 	// Transform
-	sf::Vector2<Uint16> m_map_pos;
+	sf::Vector2u m_map_pos;
 	sf::Vector2f m_size;
 
 	// Health
@@ -27,10 +29,11 @@ protected:
 public:
 	// Constructors & Destructors
 	Entity();
-	Entity(sf::Vector2<Uint16> pos, Uint32 health);
+	Entity(sf::Vector2u pos, Uint32 health);
 	virtual ~Entity() = default;
 
 	// Setters
+	void setPos(sf::Vector2u pos);
 	void setSize(sf::Vector2f size);
 	void setHealth(Uint32 health);
 	void setMaxHealth(Uint32 max_health);
@@ -40,7 +43,7 @@ public:
 	virtual void heal(Uint32 amount);
 	virtual void takeDamage(Uint32 damage);
 	virtual void die();
-	virtual void interact() {};
+	virtual void interact(Game* game) {};
 
 	// Updates
 	virtual void think() {};
@@ -50,7 +53,7 @@ public:
 	Uint32 getHealth() const;
 	Uint32 getMaxHealth() const;
 	bool isAlive() const;
-	sf::Vector2<Uint16> pos() const;
+	sf::Vector2u pos() const;
 	Uint16 x() const;
 	Uint16 y() const;
 	sf::Vector2f getRenderPos() const;

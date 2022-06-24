@@ -9,7 +9,9 @@ private:
     HealthBar m_hbar;
 
 public:
-    Enemy(sf::Vector2<Uint16> pos, Uint32 health, std::string texture_file);
+    Enemy(const sf::Vector2u& pos, Uint32 health, std::string texture_file);
+
+    void interact(Game* game);
 
     void think() override;
     void render(sf::RenderWindow* window) override;

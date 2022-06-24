@@ -130,6 +130,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="States\GameState.cpp" />
     <ClCompile Include="Map\Creators\CampCreator.cpp" />
     <ClCompile Include="Map\Creators\EnemyCreator.cpp" />
     <ClCompile Include="Entities\Camp.cpp" />
@@ -142,9 +143,13 @@
     <ClCompile Include="Map\Map.cpp" />
     <ClCompile Include="Entities\Tree.cpp" />
     <ClCompile Include="Map\Creators\TreeCreator.cpp" />
+    <ClCompile Include="States\MenuState.cpp" />
+    <ClCompile Include="States\State.cpp" />
     <ClCompile Include="UI\HealthBar.cpp" />
+    <ClCompile Include="Utils\Cords.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="States\GameState.h" />
     <ClInclude Include="Map\Creators\CampCreator.h" />
     <ClInclude Include="Map\Creators\EnemyCreator.h" />
     <ClInclude Include="Entities\Camp.h" />
@@ -153,12 +158,14 @@
     <ClInclude Include="Map\Creators\EntityCreator.h" />
     <ClInclude Include="Entities\Entity.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="States\MenuState.h" />
     <ClInclude Include="settings.h" />
     <ClInclude Include="Map\Map.h" />
     <ClInclude Include="Entities\Tree.h" />
     <ClInclude Include="Map\Creators\TreeCreator.h" />
+    <ClInclude Include="States\State.h" />
     <ClInclude Include="UI\HealthBar.h" />
-    <ClInclude Include="Utils\Cords.hpp" />
+    <ClInclude Include="Utils\Cords.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
